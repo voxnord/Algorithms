@@ -25,6 +25,11 @@ ListItem *list_first(List *list)
     return NULL;
 }
 
+ListItem *list_last(List *list)
+{
+    return NULL;
+}
+
 Data list_item_data(const ListItem *item)
 {
     return (Data)0;

@@ -1,12 +1,14 @@
 #include <stdlib.h>
 #include "list.h"
 
-typedef struct ListItem
-{
+typedef struct ListItem {
+    // remove this
+    Data d;
 } ListItem;
 
-typedef struct List
-{
+typedef struct List {
+    // remove this
+    Data d;
 } List;
 
 List *list_create(FFree f)
@@ -21,6 +23,11 @@ void list_delete(List *list)
 }
 
 ListItem *list_first(List *list)
+{
+    return NULL;
+}
+
+ListItem *list_last(List *list)
 {
     return NULL;
 }

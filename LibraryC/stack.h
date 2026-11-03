@@ -2,10 +2,11 @@
 #define STACK_H
 
 #include <stdbool.h>
+#include <stdint.h>
 
 // Stack
-// Stores pointer to custom user data
-typedef void* Data;
+// Stores integer or pointer to custom user data
+typedef uintptr_t Data;
 // Custom function to free user pointers on delete
 typedef void (FFree)(void*);
 
@@ -25,7 +26,7 @@ void stack_delete(Stack *stack);
 // Should be O(1) on average
 void stack_push(Stack *stack, Data data);
 
-// Retrives the last element from the stack
+// Retrieves the last element from the stack
 Data stack_get(const Stack *stack);
 
 // Removes the last element from the stack

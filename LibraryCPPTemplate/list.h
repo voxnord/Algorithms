@@ -41,6 +41,12 @@ public:
         return nullptr;
     }
 
+    // Retrieves the last item of the list
+    Item *last()
+    {
+        return nullptr;
+    }
+
     // Inserts new list item into the beginning
     Item *insert(Data data)
     {
@@ -48,6 +54,7 @@ public:
     }
 
     // Inserts new list item after the specified item
+    // Inserts first element if item is null
     Item *insert_after(Item *item, Data data)
     {
         return nullptr;
@@ -61,6 +68,7 @@ public:
     }
 
     // Deletes the list item following the specified one.
+    // Deletes the first element when item is null.
     // Returns pointer to the item next to the deleted one.
     // Should be O(1)
     Item *erase_next(Item *item)

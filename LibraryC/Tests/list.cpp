@@ -16,9 +16,9 @@ int main()
         return 1;
     }
 
-    list_insert(list, new int(1));
-    list_insert(list, new int(2));
-    list_insert(list, new int(3));
+    list_insert(list, (Data)new int(1));
+    list_insert(list, (Data)new int(2));
+    list_insert(list, (Data)new int(3));
 
     ListItem *item = list_first(list);
     if (!item)
@@ -35,7 +35,22 @@ int main()
         return 1;
     }
 
-    list_insert_after(list, list_first(list), new int(4));
+    item = list_last(list);
+    if (!item)
+    {
+        std::cout << "list_insert error\n";
+        list_delete(list);
+        return 1;
+    }
+
+    if (*(int*)list_item_data(item) != 1)
+    {
+        std::cout << "list_insert error\n";
+        list_delete(list);
+        return 1;
+    }
+
+    list_insert_after(list, list_first(list), (Data)new int(4));
 
     item = list_item_next(list_first(list));
     if (!item)

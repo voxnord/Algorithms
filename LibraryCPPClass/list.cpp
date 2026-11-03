@@ -23,6 +23,11 @@ List::Item *List::first()
     return nullptr;
 }
 
+List::Item *List::last()
+{
+    return nullptr;
+}
+
 List::Item *List::insert(Data data)
 {
     return nullptr;

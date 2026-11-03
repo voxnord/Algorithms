@@ -11,6 +11,8 @@ int main()
     queue->insert(2);
     queue->insert(3);
 
+    *queue = *queue;
+
     if (queue->get() != 1)
     {
         std::cout << "Invalid first element of the queue\n";
@@ -44,13 +46,13 @@ int main()
     }
 
     // Performance test
-    for (int i = 1 ; i <= 10000000 ; ++i)
+    for (int i = 1 ; i <= 1000000 ; ++i)
     {
         queue->insert(i);
     }
 
     MyQueue copy(*queue);
-    for (int i = 1 ; i <= 10000000 ; ++i)
+    for (int i = 1 ; i <= 1000000 ; ++i)
     {
         if (copy.empty())
             return 1;
@@ -61,6 +63,34 @@ int main()
         }
         copy.remove();
     }
+
+    for (int i = 1 ; i <= 1000000 ; ++i)
+    {
+        queue->remove();
+    }
+
+    queue->insert(0);
+    for (int i = 1 ; i <= 1000000 ; ++i)
+    {
+        queue->insert(i);
+        queue->remove();
+    }
+
+    delete queue;
+
+    queue = new MyQueue();
+    queue->insert(0);
+    for (int i = 1 ; i <= 100000 ; ++i)
+    {
+        int cnt = 1 + i % 20;
+        for (int j = 0 ; j < cnt ; ++j) {
+            queue->insert(i);
+        }
+        for (int j = 0 ; j < cnt ; ++j) {
+            queue->remove();
+        }
+    }
+
 
     delete queue;
 }

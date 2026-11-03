@@ -9,6 +9,8 @@ int main()
     queue->insert(2);
     queue->insert(3);
 
+    *queue = *queue;
+
     if (queue->get() != 1)
     {
         std::cout << "Invalid first element of the queue\n";
@@ -42,9 +44,36 @@ int main()
     }
 
     // Performance test
-    for (int i = 1 ; i <= 10000000 ; ++i)
+    queue->insert(0);
+    for (int i = 1 ; i <= 1000000 ; ++i)
     {
         queue->insert(i);
+    }
+
+    for (int i = 1 ; i <= 1000000 ; ++i)
+    {
+        queue->remove();
+    }
+
+    for (int i = 1 ; i <= 1000000 ; ++i)
+    {
+        queue->insert(i);
+        queue->remove();
+    }
+
+    delete queue;
+
+    queue = new Queue();
+    queue->insert(0);
+    for (int i = 1 ; i <= 100000 ; ++i)
+    {
+        int cnt = 1 + i % 20;
+        for (int j = 0 ; j < cnt ; ++j) {
+            queue->insert(i);
+        }
+        for (int j = 0 ; j < cnt ; ++j) {
+            queue->remove();
+        }
     }
 
     delete queue;

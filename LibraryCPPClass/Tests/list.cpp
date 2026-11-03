@@ -15,7 +15,15 @@ int main()
     list->insert(2);
     list->insert(3);
 
+    *list = *list;
+
     if (list->first()->data() != 3)
+    {
+        std::cout << "list_insert error\n";
+        return 1;
+    }
+
+    if (list->last()->data() != 1)
     {
         std::cout << "list_insert error\n";
         return 1;
